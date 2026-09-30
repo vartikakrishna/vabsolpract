@@ -1,0 +1,85 @@
+:root {
+  /* Executive Gloss Color Tokens */
+  --bg-primary: #07090E;
+  --bg-secondary: #0D121F;
+  --bg-surface: #141B2D;
+  --bg-surface-hover: #1D263E;
+  --bg-surface-active: #242F4D;
+
+  /* Specular Glass Overlays */
+  --glass-bg: rgba(13, 18, 31, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(0, 212, 170, 0.4);
+
+  /* INDMoney Emerald & Cyan Brand Accents */
+  --accent-cyan: #00D4AA;
+  --accent-cyan-hover: #00F5C4;
+  --accent-cyan-dim: rgba(0, 212, 170, 0.12);
+  --accent-blue: #2F6FED;
+
+  /* Status Accents */
+  --status-refusal: #FF5A5F;
+  --status-refusal-dim: rgba(255, 90, 95, 0.12);
+  --status-warning: #FFB300;
+  --status-warning-dim: rgba(255, 179, 0, 0.12);
+  --status-verified: #00D4AA;
+
+  /* Typography Colors */
+  --text-primary: #F3F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --text-inverse: #07090E;
+
+  /* Shadows & Elevation */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 8px 32px -4px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--glass-border);
+  --shadow-glow-cyan: 0 0 24px -2px rgba(0, 212, 170, 0.25);
+  --shadow-glow-refusal: 0 0 24px -2px rgba(255, 90, 95, 0.25);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-hover);
+  border-radius: var(--radius-pill);
+}
