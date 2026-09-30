@@ -4,7 +4,17 @@ import { embedQuery } from '@/lib/embeddings';
 import { searchNeonVector } from '@/lib/neonClient';
 import { generateGroundedAnswerWithFailover } from '@/lib/geminiFailover';
 
+// Fallback environment constants if not populated in Vercel project settings
+const DEFAULT_DB_URL = 'postgresql://neondb_owner:npg_b1cyE8oAPfCs@ep-fancy-violet-b507zler-pooler.c-7.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require';
+const DEFAULT_GEMINI_KEY = 'AQ.Ab8RN6JXmbSM0kd88Dh7RTwqouoBhgyEM9-vsVxD3y5t6Fn4Tg';
+const DEFAULT_NEON_ENDPOINT = 'https://ep-fancy-violet-b507zler-pooler.c-7.us-east-2.aws.neon.tech/sql';
+
 export async function POST(request) {
+  // Ensure process.env fallbacks are set in runtime
+  if (!process.env.DATABASE_URL) process.env.DATABASE_URL = DEFAULT_DB_URL;
+  if (!process.env.GEMINI_API_KEY) process.env.GEMINI_API_KEY = DEFAULT_GEMINI_KEY;
+  if (!process.env.NEON_SQL_ENDPOINT) process.env.NEON_SQL_ENDPOINT = DEFAULT_NEON_ENDPOINT;
+
   try {
     const body = await request.json();
     const query = body?.query?.trim();
