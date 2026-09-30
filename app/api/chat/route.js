@@ -82,7 +82,10 @@ export async function POST(request) {
   } catch (error) {
     console.error('API Error:', error);
     return NextResponse.json(
-      { error: 'An unexpected error occurred while processing your request. Please try again.' },
+      { 
+        error: 'An unexpected error occurred while processing your request.',
+        details: error?.message || String(error)
+      },
       { status: 500 }
     );
   }
